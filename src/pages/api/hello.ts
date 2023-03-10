@@ -9,5 +9,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  if (req.query["error"]) {
+    throw new Error("I'm intentionally broken");
+  }
   res.status(200).json({ name: "John Doe" });
 }
